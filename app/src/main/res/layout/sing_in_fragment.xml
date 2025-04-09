@@ -5,28 +5,17 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <!-- Línea guía al 50% de la altura para dividir la pantalla -->
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guidelineHalf"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_begin="366dp" />
-
-    <!-- Fondo azul marino para la mitad superior -->
     <View
-        android:id="@+id/topBackground"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:background="#56B87D"
-        app:layout_constraintBottom_toTopOf="@id/guidelineHalf"
+        android:id="@+id/view2"
+        android:layout_width="match_parent"
+        android:layout_height="364dp"
+        android:background="#A5D6A7"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <!-- ICONO -->
     <ImageView
-        android:id="@+id/iconLogo"
+        android:id="@+id/iconImageView"
         android:layout_width="32dp"
         android:layout_height="32dp"
         android:layout_marginStart="16dp"
@@ -35,99 +24,108 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <!-- Texto: Bienvenido -->
     <TextView
-        android:id="@+id/tvBienvenido"
+        android:id="@+id/welcomeTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Bienvenido!"
-        android:textColor="@android:color/white"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="¡Bienvenido!"
         android:textSize="24sp"
         android:textStyle="bold"
-        app:layout_constraintTop_toBottomOf="@id/iconLogo"
-        android:layout_marginTop="16dp"
         app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginStart="16dp" />
+        app:layout_constraintTop_toBottomOf="@+id/iconImageView" />
 
-    <!-- Texto: Inicia sesión -->
     <TextView
-        android:id="@+id/tvSubtitulo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Inicia sesión para continuar."
-        android:textColor="@android:color/white"
-        android:textSize="16sp"
-        app:layout_constraintTop_toBottomOf="@id/tvBienvenido"
+        android:id="@+id/subtitleTextView"
+        android:layout_width="200dp"
+        android:layout_height="36dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
+        android:text="Inicia sesión para continuar"
+        android:textSize="16sp"
+        android:textColor="@color/black"
         app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginStart="16dp" />
+        app:layout_constraintTop_toBottomOf="@+id/welcomeTextView" />
 
-    <!-- Campo Correo -->
-    <TextView
-        android:id="@+id/tvCorreo"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/emailTIL"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
-        android:background="#D9D9D9"
-        android:padding="12dp"
-        android:text="Correo:"
-        android:visibility="visible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/guidelineHalf" />
+        app:layout_constraintTop_toBottomOf="@+id/view2">
 
-    <!-- Campo Contraseña -->
-    <TextView
-        android:id="@+id/tvPassword"
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/emailTIET"
+            android:layout_width="match_parent"
+            android:layout_height="36dp"
+            android:paddingVertical="12dp"
+            android:hint="Correo:"
+            android:textSize="16sp"
+            android:inputType="textEmailAddress" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/passwordTil"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
-        android:background="#E2E0E0"
-        android:padding="12dp"
-        android:text="Contraseña:"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvCorreo" />
+        app:layout_constraintTop_toBottomOf="@+id/emailTIL">
 
-    <!-- Botón Ingresar -->
-    <Button
-        android:id="@+id/btnIngresar"
-        android:layout_width="375dp"
-        android:layout_height="42dp"
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/passwordTIET"
+            android:layout_width="match_parent"
+            android:layout_height="36dp"
+            android:paddingVertical="12dp"
+            android:hint="Contraseña:"
+            android:textSize="16sp"
+            android:inputType="textPassword" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/loginButton"
+        android:layout_width="0dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
+        android:layout_height="36dp"
+        android:textSize="16sp"
         android:text="Ingresar"
+        android:textAllCaps="false"
+        android:textColor="@android:color/white"
+        app:cornerRadius="12dp"
+        app:backgroundTint="#1565C0"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvPassword" />
+        app:layout_constraintTop_toBottomOf="@+id/passwordTil" />
 
-    <!-- Texto Registrarse -->
     <TextView
-        android:id="@+id/tvRegistrarse"
+        android:id="@+id/registerTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginBottom="16dp"
-        android:autoText="false"
         android:text="Regístrate"
-        android:textColor="#001F3F"
+        android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <!-- Texto Restablecer Contraseña -->
     <TextView
-        android:id="@+id/tvResetPassword"
+        android:id="@+id/restTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
         android:text="Restablecer Contraseña"
-        android:textColor="#001F3F"
+        android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
