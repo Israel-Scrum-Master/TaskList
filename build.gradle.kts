@@ -5,9 +5,3 @@ plugins {
     alias(libs.plugins.kotlin.android) apply false
 }
 
-subprojects {
-    repositories {
-        google()
-        mavenCentral()
-    }
-}

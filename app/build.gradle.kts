@@ -4,12 +4,12 @@ plugins {
 }
 
 android {
-    namespace = "com.example.tasklist"
+    namespace = "com.example.noteferver"
     compileSdk = 35
 
     defaultConfig {
-        applicationId = "com.example.tasklist"
-        minSdk = 25
+        applicationId = "com.example.noteferver"
+        minSdk = 34
         targetSdk = 35
         versionCode = 1
         versionName = "1.0"
@@ -26,30 +26,29 @@ android {
             )
         }
     }
-
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
     }
-
     kotlinOptions {
         jvmTarget = "11"
+    }
+    buildFeatures {
+        viewBinding = true
     }
 }
 
 dependencies {
-    // Dependencia directa de Lottie
-    implementation("com.airbnb.android:lottie:6.4.0")
 
-    // Dependencia de ConstraintLayout
-    implementation("androidx.constraintlayout:constraintlayout:2.1.4")
-
-    // Otras dependencias necesarias
-    testImplementation(libs.junit) // JUnit para pruebas unitarias
-    androidTestImplementation(libs.androidx.junit) // JUnit para pruebas de UI
-    androidTestImplementation(libs.androidx.espresso.core) // Espresso para UI Testing
-
-    implementation("androidx.navigation:navigation-fragment-ktx:2.5.0")  // Cambia a la versión más reciente si es necesario
-    implementation("androidx.navigation:navigation-ui-ktx:2.5.0")  // Cambia a la versión más reciente si es necesario
-
+    implementation(libs.androidx.core.ktx)
+    implementation(libs.androidx.appcompat)
+    implementation(libs.material)
+    implementation(libs.androidx.activity)
+    implementation(libs.androidx.constraintlayout)
+    implementation(libs.androidx.navigation.fragment.ktx)
+    implementation(libs.androidx.navigation.ui.ktx)
+    testImplementation(libs.junit)
+    androidTestImplementation(libs.androidx.junit)
+    androidTestImplementation(libs.androidx.espresso.core)
+    implementation(libs.lottie)
 }
