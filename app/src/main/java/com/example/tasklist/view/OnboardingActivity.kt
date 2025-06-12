@@ -1,4 +1,4 @@
-package com.example.noteferver.view
+package com.example.tasklist.view
 
 import android.os.Bundle
 import android.view.View
@@ -8,8 +8,8 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
-import com.example.noteferver.R
-import com.example.noteferver.databinding.ActivityOnboardingBinding
+import com.example.tasklist.R
+import com.example.tasklist.databinding.ActivityOnboardingBinding
 import com.example.tasklist.utils.FragmentCommunicator
 
 class OnboardingActivity  : AppCompatActivity(), FragmentCommunicator {
