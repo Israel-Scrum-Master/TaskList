@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace = "com.example.noteferver"
+    namespace = "com.example.tasklist"
     compileSdk = 35
 
     defaultConfig {
-        applicationId = "com.example.noteferver"
+        applicationId = "com.example.tasklist"
         minSdk = 34
         targetSdk = 35
         versionCode = 1
@@ -47,8 +47,15 @@ dependencies {
     implementation(libs.androidx.constraintlayout)
     implementation(libs.androidx.navigation.fragment.ktx)
     implementation(libs.androidx.navigation.ui.ktx)
+    implementation(libs.firebase.auth.ktx)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+
+    // Dependencia para Lottie
     implementation(libs.lottie)
+
+    //Dependencia para firebase
+    implementation(platform("com.google.firebase:firebase-bom:33.15.0"))
+
 }

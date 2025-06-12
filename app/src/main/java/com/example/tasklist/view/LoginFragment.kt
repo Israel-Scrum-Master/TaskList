@@ -7,28 +7,26 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.tasklist.R
-import com.example.tasklist.databinding.RegisterFragmentBinding
+import com.example.tasklist.databinding.LoginFragmentBinding
 
-
-
-class RegisterFragment : Fragment() {
-    private var _binding: RegisterFragmentBinding? = null
+class LoginFragment : Fragment() {
+    private var _binding: LoginFragmentBinding? = null
     private val binding get() = _binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = RegisterFragmentBinding.inflate(inflater, container, false)
+        _binding = LoginFragmentBinding.inflate(inflater, container, false)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // Cuando el usuario presiona "Registrar", se regresa a LoginFragment
-        binding.registerButton.setOnClickListener {
-            findNavController().navigate(R.id.action_registerFragment_to_loginFragment)
+        // Navegar a RegisterFragment cuando el usuario toque el registro
+        binding.registerTextView.setOnClickListener {
+            findNavController().navigate(R.id.action_loginFragment_to_registerFragment)
         }
     }
 
